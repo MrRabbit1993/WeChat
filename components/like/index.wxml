@@ -1,0 +1,4 @@
+<view bind:tap="_touch" class="container">
+    <image src="{{like?ckeckUrl:notCkeckUrl}}" class="img" />
+    <text class="number">{{count}}</text>
+</view>
