@@ -9,7 +9,7 @@ class Http {
                 appKey: config.appKey
             },
             success:(res)=>{
-                params.success(res)
+                params.success&&params.success(res)
             }
 
         })

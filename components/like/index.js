@@ -13,12 +13,16 @@ Component({
   },
   methods: {
     _touch() {
-      let like  = this.properties.like;
+      let like = this.properties.like;
       let count = this.properties.count;
-      count = like?--count:++count;
+      count = like ? --count : ++count;
       this.setData({
-        like:!like,
+        like: !like,
         count
+      })
+      const behavior = this.properties.like ? "like" : "cancel";
+      this.triggerEvent("behavior", {
+        behavior
       })
     }
   }

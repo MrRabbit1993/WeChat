@@ -1,25 +1,32 @@
 import ClassicModel from "./../../models/classic.js";
+import LikeModel from "./../../models/like";
 const classicInstance = new ClassicModel();
+const likeInstance = new LikeModel();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    classicData:{}
+    classicData: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    classicInstance.getLatest((res)=>{
+    classicInstance.getLatest((res) => {
       this.setData({
-        classicData:res.data
+        classicData: res.data
       })
     })
   },
-
+  behavior(obj) {
+    const behavior = obj.detail.behavior;
+    console.log(behavior);
+    console.log(this.data.classicData.id)
+    likeInstance.like(behavior, this.data.classicData.id, this.data.classicData.type)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -67,5 +74,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  methods: {
+    // behavior(obj){
+    //   console.log(obj)
+    // }
   }
 })
