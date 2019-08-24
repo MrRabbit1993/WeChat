@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classicData: {}
+    classicData: {},
+    latest:true,
+    first:false
   },
 
   /**
@@ -23,9 +25,13 @@ Page({
   },
   behavior(obj) {
     const behavior = obj.detail.behavior;
-    console.log(behavior);
-    console.log(this.data.classicData.id)
     likeInstance.like(behavior, this.data.classicData.id, this.data.classicData.type)
+  },
+  nextFn(obj){
+    console.log(obj)
+  },
+  previousFn(obj){
+    console.log(obj)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
