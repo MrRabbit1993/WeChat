@@ -1,2 +1,5 @@
-<!--components/classic/eaasy/index.wxml-->
-<text>components/classic/eaasy/index.wxml</text>
+<view class="container">
+    <image src="{{img}}" class="img"/>
+    <image src="images/essay@tag.png" class="tag"/>
+    <text class="content">{{content}}</text>
+</view>

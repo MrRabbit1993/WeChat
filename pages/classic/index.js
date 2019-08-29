@@ -31,7 +31,14 @@ Page({
     console.log(obj)
   },
   previousFn(obj){
-    console.log(obj)
+    const idx = this.data.classicData.index;
+    classicInstance.getPrevious(idx,(res)=>{
+      this.setData({
+        classicData: res.data,
+        first:classicInstance.isFrist(res.data.index),
+        latest:classicInstance.isLast(res.data.index)
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
