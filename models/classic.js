@@ -5,16 +5,27 @@ class ClassicModel extends Http {
             url: 'classic/latest',
             success: (res) => {
                 cb(res);
-                console.log(res)
+                const index = this._getKey(res.data.index);
+                wx.setStorageSync(index, res.data);//缓存最新的期刊
                 this._setLastIdx(res.data.index)
             }
         })
     }
-    getPrevious(index, cb) {
-        this.request({
-            url: `classic/${index}/previous`,
-            success: (res) => cb(res)
-        })
+    getClassic(index, type, cb) {
+        let key = type == "next" ? this._getKey(index + 1) : this._getKey(index - 1);
+        let classic = wx.getStorageSync(key);//从缓存里面寻找
+        if (!classic) {
+            this.request({
+                url: `classic/${index}/${type}`,
+                success: (res) => {
+                    wx.setStorageSync(this._getKey(res.data.index), res.data);//写入缓存
+                    cb(res)
+                }
+            })
+        } else {
+            cb(classic)
+        }
+
     }
     isFrist(idx) {
         return idx == 1 ? true : false
@@ -28,6 +39,10 @@ class ClassicModel extends Http {
     }
     _getLastIdx(key) {
         return wx.getStorageSync(key)
+    }
+    _getKey(idx) {
+        let key = `classic-${idx}`;
+        return key
     }
 }
 export default ClassicModel

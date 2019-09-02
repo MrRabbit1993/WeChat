@@ -9,8 +9,8 @@ Page({
    */
   data: {
     classicData: {},
-    latest:true,
-    first:false
+    latest: true,
+    first: false
   },
 
   /**
@@ -27,18 +27,21 @@ Page({
     const behavior = obj.detail.behavior;
     likeInstance.like(behavior, this.data.classicData.id, this.data.classicData.type)
   },
-  nextFn(obj){
-    console.log(obj)
+  nextFn(obj) {
+    this._updateClassic("next");
   },
-  previousFn(obj){
+  _updateClassic(type) {
     const idx = this.data.classicData.index;
-    classicInstance.getPrevious(idx,(res)=>{
+    classicInstance.getClassic(idx, type, (res) => {
       this.setData({
         classicData: res.data,
-        first:classicInstance.isFrist(res.data.index),
-        latest:classicInstance.isLast(res.data.index)
+        first: classicInstance.isFrist(res.data.index),
+        latest: classicInstance.isLast(res.data.index)
       })
     })
+  },
+  previousFn(obj) {
+    this._updateClassic("previous");
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -87,10 +90,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  methods: {
-    // behavior(obj){
-    //   console.log(obj)
-    // }
   }
 })
