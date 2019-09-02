@@ -17,9 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    classicInstance.getLatest((res) => {
+    classicInstance.getLatest((data) => {
       this.setData({
-        classicData: res.data
+        classicData: data
       })
     })
   },
@@ -32,11 +32,11 @@ Page({
   },
   _updateClassic(type) {
     const idx = this.data.classicData.index;
-    classicInstance.getClassic(idx, type, (res) => {
+    classicInstance.getClassic(idx, type, (data) => {
       this.setData({
-        classicData: res.data,
-        first: classicInstance.isFrist(res.data.index),
-        latest: classicInstance.isLast(res.data.index)
+        classicData: data,
+        first: classicInstance.isFrist(data.index),
+        latest: classicInstance.isLast(data.index)
       })
     })
   },

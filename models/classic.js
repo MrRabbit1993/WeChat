@@ -4,7 +4,7 @@ class ClassicModel extends Http {
         this.request({
             url: 'classic/latest',
             success: (res) => {
-                cb(res);
+                cb(res.data);
                 const index = this._getKey(res.data.index);
                 wx.setStorageSync(index, res.data);//缓存最新的期刊
                 this._setLastIdx(res.data.index)
@@ -19,7 +19,7 @@ class ClassicModel extends Http {
                 url: `classic/${index}/${type}`,
                 success: (res) => {
                     wx.setStorageSync(this._getKey(res.data.index), res.data);//写入缓存
-                    cb(res)
+                    cb(res.data)
                 }
             })
         } else {
