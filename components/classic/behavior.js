@@ -5,6 +5,9 @@ const classicBeh = Behavior({
         },
         content: {
             type: String
+        },
+        hidden:{
+            type:Boolean
         }
     }
 })

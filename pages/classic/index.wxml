@@ -1,8 +1,10 @@
 <view class="container">
     <view class="header">
         <epsoide-cmp class="epsoide" index="{{classicData.index}}" />
-        <like-cmp class="like" bind:behavior="behavior" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+        <like-cmp class="like" bind:behavior="behavior" like="{{likeStatus}}" count="{{likeCount}}" />
     </view>
-    <movie-cmp img="{{classicData.image}}" content="{{classicData.content}}" />
+    <movie-cmp hidden="{{classicData.type!=100}}" img="{{classicData.image}}" content="{{classicData.content}}" />
+    <music-cmp hidden="{{classicData.type!=200}}" img="{{classicData.image}}" content="{{classicData.content}}" />
+    <eaasy-cmp hidden="{{classicData.type!=300}}" img="{{classicData.image}}" content="{{classicData.content}}" />
     <nav-cmp class="nav" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" bind:left="nextFn" bind:right="previousFn"/>
 </view>

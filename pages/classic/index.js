@@ -10,7 +10,9 @@ Page({
   data: {
     classicData: {},
     latest: true,
-    first: false
+    first: false,
+    likeCount:0,
+    likeStatus:false
   },
 
   /**
@@ -19,7 +21,9 @@ Page({
   onLoad: function (options) {
     classicInstance.getLatest((data) => {
       this.setData({
-        classicData: data
+        classicData: data,
+        likeCount:data.fav_nums,
+        likeStatus:data.like_status,
       })
     })
   },
@@ -38,10 +42,19 @@ Page({
         first: classicInstance.isFrist(data.index),
         latest: classicInstance.isLast(data.index)
       })
+      this._getLikeStatus(data.id,data.type);
     })
   },
   previousFn(obj) {
     this._updateClassic("previous");
+  },
+  _getLikeStatus(artID,type){
+    likeInstance.getLikeStatus(artID,type,(res)=>{
+      this.setData({
+        likeStatus:res.data.like_status,
+        likeCount:res.data.fav_nums
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
