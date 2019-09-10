@@ -1,1 +1,1 @@
-/* components/classic/eaasy/index.wxss */
+@import "../common.wxss";
