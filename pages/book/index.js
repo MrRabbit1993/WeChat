@@ -1,4 +1,5 @@
-// pages/book/index.js
+import BookModal from "./../../models/book.js"
+const bookInstance = new BookModal();
 Page({
 
   /**
@@ -12,7 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const result = bookInstance.getHootLis();
+    result.then(_=>console.log(_))
   },
 
   /**
