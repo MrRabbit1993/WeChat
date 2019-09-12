@@ -16,7 +16,7 @@ class Http {
                 success: (res) => {
                     const code = res.statusCode.toString();
                     if (code.startsWith("2")) {
-                        resolve(res)
+                        resolve(res.data)
                     } else {
                         this._show_error(1)
                         reject()
