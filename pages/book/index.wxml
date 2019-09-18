@@ -1,1 +1,16 @@
-<book-cmp book="{{books[0]}}"/>
+<view class="container">
+    <view class="header">
+        <view class="box">
+            <img src="/images/icon/search.png" />
+            <text>搜索书籍</text>
+        </view>
+    </view>
+    <view class="sub-container">
+        <img class="head-img" src="/images/book/quality.png" />
+        <view class="books-container">
+            <block wx:for="{{books}}" wx:key="{{item.id}}">
+                <book-cmp book="{{item}}" />
+            </block>
+        </view>
+    </view>
+</view>
