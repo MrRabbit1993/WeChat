@@ -8,7 +8,7 @@
     <view class="sub-container">
         <img class="head-img" src="/images/book/quality.png" />
         <view class="books-container">
-            <block wx:for="{{books}}" wx:key="{{item.id}}">
+            <block wx:for="{{books}}" wx:key="id">
                 <book-cmp book="{{item}}" />
             </block>
         </view>
