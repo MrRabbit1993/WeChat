@@ -13,7 +13,7 @@ Page({
     const comments = bookInstance.getComments(bookId);
     const likeStatus = bookInstance.getLikeStatus(bookId);
     details.then(book=>this.setData({book}))
-    comments.then(comments=>this.setData({comments}))
+    comments.then(comments=>this.setData({comments:comments.comments}))
     likeStatus.then(likeStatus=>this.setData({likeStatus}))
   },
 

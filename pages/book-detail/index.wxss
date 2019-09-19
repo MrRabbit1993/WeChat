@@ -45,3 +45,13 @@
     color: #2f2f2f;
     margin-bottom: 20rpx;
 }
+
+.comment-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.comment-container .tag {
+    margin-right: 15rpx;
+    margin-bottom: 10rpx;
+}

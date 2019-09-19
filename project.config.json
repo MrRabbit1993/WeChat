@@ -44,7 +44,7 @@
 					"id": 0,
 					"name": "调试详情",
 					"pathName": "pages/book-detail/index",
-					"query": "bookId=1120",
+					"query": "bookId=7",
 					"scene": null
 				}
 			]
