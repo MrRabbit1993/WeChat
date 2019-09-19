@@ -8,7 +8,9 @@
         <text class="headline">短评</text>
         <view class="comment-container">
             <block wx:for="{{comments}}" wx:key="{{content}}">
-                <tag-cmp text="{{item.content}}" class="tag"/>
+                <tag-cmp text="{{item.content}}" class="tag">
+                    <text slot="after">+{{item.nums}}</text>
+                </tag-cmp>
             </block>
         </view>
     </view>
