@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" bind:tap="tapFun">
     <image src="{{book.image}}" class="img"/>
     <view class="description">
         <text class="title">{{book.title}}</text>

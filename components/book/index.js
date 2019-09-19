@@ -21,6 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    tapFun(){
+      const bookId = this.properties.book.id;
+      wx.navigateTo({
+        url: `/pages/book-detail/index?bookId=${bookId}`
+      });
+    }
   }
 })

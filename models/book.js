@@ -10,5 +10,20 @@ class BookModal extends Http {
             url: "book/favor/count"
         })
     }
+    getDetail(bookId) {
+        return this.request({
+            url: `book/${bookId}/detail`
+        })
+    }
+    getLikeStatus(bookId) {
+        return this.request({
+            url: `book/${bookId}/favor`
+        })
+    }
+    getComments(bookId) {
+        return this.request({
+            url: `book/${bookId}/short_comment`
+        })
+    }
 }
 export default BookModal
