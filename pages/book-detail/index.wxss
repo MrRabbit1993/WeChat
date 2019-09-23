@@ -56,8 +56,29 @@
     margin-bottom: 10rpx;
 }
 
+.content {
+    text-indent: 58rpx;
+    font-weight: 500;
+}
+
 .num {
     margin-left: 10rpx;
     font-size: 22rpx;
     color: #aaa;
+}
+
+/* .comment-container>.tag:nth-child(1)>view {
+    background: #fffbdd;
+}
+
+.comment-container>.tag:nth-child(2)>view {
+    background: #eefbff;
+} */
+
+.ex-tag {
+    background: #fffbdd !important;
+}
+
+.ex-tag-1 {
+    background: #eefbff !important;
 }

@@ -1,0 +1,9 @@
+//该文件下不能使用es6语法
+var format = function (txt) {
+    if (!txt) return
+    var reg = getRegExp("\\\\n", "g");
+    return txt.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;')
+}
+module.exports = {
+    format: format
+}

@@ -1,3 +1,4 @@
+<wxs src="./../../utils/filter.wxs" module="unit"></wxs>
 <view class="container">
     <view class="header">
         <image src="{{book.image}}" class="img" />
@@ -8,10 +9,14 @@
         <text class="headline">短评</text>
         <view class="comment-container">
             <block wx:for="{{comments}}" wx:key="{{content}}">
-                <tag-cmp text="{{item.content}}" class="tag">
+                <tag-cmp tag-class="{{index==0?'ex-tag':''||index==1?'ex-tag-1':''}}" text="{{item.content}}" class="tag">
                     <text slot="after" class="num">+{{item.nums}}</text>
                 </tag-cmp>
             </block>
         </view>
+    </view>
+    <view class="sub-container">
+        <text class="headline">内容简介</text>
+        <text class="content" decode="{{true}}">{{unit.format(book.summary)}}</text>
     </view>
 </view>

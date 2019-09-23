@@ -6,6 +6,7 @@ Component({
   options: {
     multipleSlots: true//开启插槽
   },
+  externalClasses: ['tag-class'],
   properties: {
     text: {
       type: String,
