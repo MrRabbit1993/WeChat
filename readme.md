@@ -9,3 +9,5 @@
 在组件内部使用externalClasses: ['tag-class'],
 ### 关于bind 与catch区别
 catch会阻断事件冒泡
+### 编译unicode
+需要使用decode="{{true}}"，开启编译自带的。类型vue的v-html 与react的dangerouslySetInnerHTML 。但是标签没确定
