@@ -47,3 +47,11 @@
         <like-cmp bind:behavior="likeFun" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
     </view>
 </view>
+<view class="posting-container">
+    <view class="post-header">
+        <text class="txt">仅可点击标签+1</text>
+        <text class="cancel txt">取消</text>
+    </view>
+    <view class="comment-container"></view>
+    <input class="post" placeholder="短评最多12个字" />
+</view>
