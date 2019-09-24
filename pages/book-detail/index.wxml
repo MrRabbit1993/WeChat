@@ -40,7 +40,7 @@
     </view>
 </view>
 <view class="post-container">
-    <view class="post-fake">
+    <view class="post-fake" bind:tap="onTouch">
         <text>输入短评</text>
     </view>
     <view class="like-container">
