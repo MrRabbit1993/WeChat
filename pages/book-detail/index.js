@@ -1,22 +1,27 @@
 import BookModal from "./../../models/book.js"
+import LikeModel from "./../../models/like";
 const bookInstance = new BookModal();
+const likeInstance = new LikeModel();
 Page({
   data: {
-    comments:[],
-    book:null,
-    likeStatus:false,
-    likeCount:0
+    comments: [],
+    book: null,
+    likeStatus: false,
+    likeCount: 0
   },
   onLoad: function (options) {
     const { bookId } = options;
     const details = bookInstance.getDetail(bookId);
     const comments = bookInstance.getComments(bookId);
     const likeStatus = bookInstance.getLikeStatus(bookId);
-    details.then(book=>this.setData({book}))
-    comments.then(comments=>this.setData({comments:comments.comments}))
-    likeStatus.then(likeStatus=>this.setData({likeStatus}))
+    details.then(book => this.setData({ book }))
+    comments.then(comments => this.setData({ comments: comments.comments }))
+    likeStatus.then(likeStatus => this.setData({ likeStatus }))
   },
-
+  likeFun(obj) {
+    const like_or_cancel = obj.detail.behavior;
+    likeInstance.like(like_or_cancel,this.data.book.id,400)
+  },
   onReady: function () {
 
   },
