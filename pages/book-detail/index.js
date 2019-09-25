@@ -33,6 +33,32 @@ Page({
       posting: false
     })
   },
+  onPost(event) {
+    const txt = event.detail.text || event.detail.value;
+    if (!txt) return
+    if (txt.length > 12) {
+      wx.showToast({
+        title: '短评最多12个字',
+        icon: 'none'
+      });
+      return
+    }
+    bookInstance.postComment(this.data.book.id, txt)
+      .then(_ => {
+        wx.showToast({
+          title: '+1',
+          icon: 'none'
+        });
+        this.data.comments.unshift({
+          content: comment,
+          nums: 1
+        })
+        this.setData({
+          comments: this.data.comments,
+          posting: false
+        })
+      })
+  },
   onReady: function () {
 
   },

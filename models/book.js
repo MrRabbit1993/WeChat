@@ -25,5 +25,15 @@ class BookModal extends Http {
             url: `book/${bookId}/short_comment`
         })
     }
+    postComment(bookId, comment) {
+        return this.request({
+            url: "book/add/short_comment",
+            methods: "POST",
+            data: {
+                book_id: bookId,
+                content: comment
+            }
+        })
+    }
 }
 export default BookModal
