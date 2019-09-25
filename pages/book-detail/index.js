@@ -8,7 +8,7 @@ Page({
     book: null,
     likeStatus: false,
     likeCount: 0,
-    posting:false
+    posting: false
   },
   onLoad: function (options) {
     const { bookId } = options;
@@ -21,11 +21,16 @@ Page({
   },
   likeFun(obj) {
     const like_or_cancel = obj.detail.behavior;
-    likeInstance.like(like_or_cancel,this.data.book.id,400)
+    likeInstance.like(like_or_cancel, this.data.book.id, 400)
   },
-  onTouch(){
+  onTouch() {
     this.setData({
-      posting:true
+      posting: true
+    })
+  },
+  cancelFun() {
+    this.setData({
+      posting: false
     })
   },
   onReady: function () {

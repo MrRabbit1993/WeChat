@@ -9,7 +9,7 @@
         <text class="headline">短评</text>
         <view class="comment-container">
             <block wx:for="{{unit.limit(comments,15)}}" wx:key="{{content}}">
-                <tag-cmp tag-class="{{index==0?'ex-tag':''||index==1?'ex-tag-1':''}}" text="{{item.content}}" class="tag">
+                <tag-cmp tag-class="{{unit.highlight(index)}}" text="{{item.content}}" class="tag">
                     <text slot="after" class="num">+{{item.nums}}</text>
                 </tag-cmp>
             </block>
@@ -39,7 +39,7 @@
         </view>
     </view>
 </view>
-<view class="post-container">
+<view class="post-container" wx:if="{{!posting}}">
     <view class="post-fake" bind:tap="onTouch">
         <text>输入短评</text>
     </view>
@@ -47,11 +47,18 @@
         <like-cmp bind:behavior="likeFun" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
     </view>
 </view>
-<view class="posting-container">
+<view class="posting-container" wx:if="{{posting}}">
     <view class="post-header">
         <text class="txt">仅可点击标签+1</text>
-        <text class="cancel txt">取消</text>
+        <text class="cancel txt" bind:tap="cancelFun">取消</text>
     </view>
-    <view class="comment-container"></view>
+    <view class="comment-container">
+        <block wx:for="{{unit.limit(comments,3)}}" wx:key="{{content}}">
+            <tag-cmp tag-class="{{unit.highlight(index)}}" text="{{item.content}}" class="tag">
+                <text slot="after" class="num">+{{item.nums}}</text>
+            </tag-cmp>
+        </block>
+    </view>
     <input class="post" placeholder="短评最多12个字" />
 </view>
+<mask-cmp wx:if="{{posting}}"/>

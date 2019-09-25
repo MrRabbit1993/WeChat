@@ -7,7 +7,13 @@ var format = function (txt) {
 var limit = function (array, length) {
     return array.splice(0, length)
 }
+var highlight = function (index) {
+    if (index == 0) return 'ex-tag'
+    if (index == 1) return 'ex-tag-1'
+    return ''
+}
 module.exports = {
     format: format,
-    limit: limit
+    limit: limit,
+    highlight: highlight
 }
