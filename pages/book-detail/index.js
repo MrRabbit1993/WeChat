@@ -11,13 +11,20 @@ Page({
     posting: false
   },
   onLoad: function (options) {
+    wx.showLoading();
     const { bookId } = options;
     const details = bookInstance.getDetail(bookId);
     const comments = bookInstance.getComments(bookId);
     const likeStatus = bookInstance.getLikeStatus(bookId);
-    details.then(book => this.setData({ book }))
-    comments.then(comments => this.setData({ comments: comments.comments }))
-    likeStatus.then(likeStatus => this.setData({ likeStatus }))
+    Promise.all([details,comments,likeStatus]).then(_=>{
+      this.setData({
+        book:_[0],
+        comments:_[1].comments,
+        likeStatus:_[2].like_status,
+        likeCount:_[2].fav_nums
+      })
+      wx.hideLoading();
+    })
   },
   likeFun(obj) {
     const like_or_cancel = obj.detail.behavior;
