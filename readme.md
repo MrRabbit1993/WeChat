@@ -11,3 +11,7 @@
 catch会阻断事件冒泡
 ### 编译转义字符 eg:&nbsp
 需要使用decode="{{true}}"，开启编译自带的。类型vue的v-html 与react的dangerouslySetInnerHTML 。但只是相近
+### 子组件派发事件
+this.triggerEvent("behavior", {xxx:xx})
+### Behavior 解释
+Behavior就是类型vue的mixins
