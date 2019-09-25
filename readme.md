@@ -13,13 +13,18 @@ options: {
   }
 ```
 ### 关于外部样式写发
-在组件内部使用externalClasses: ['tag-class'],
+在组件内部使用
+```js
+externalClasses: ['tag-class']
+```
 ### 关于bind 与catch区别
 catch会阻断事件冒泡
 ### 编译转义字符 eg:&nbsp
 需要使用decode="{{true}}"，开启编译自带的。类型vue的v-html 与react的dangerouslySetInnerHTML 。但只是相近
 ### 子组件派发事件
+```js
 this.triggerEvent("behavior", {xxx:xx})
+```
 ### Behavior 解释
 Behavior就是类型vue的mixins
 ### bindconfirm 事件
