@@ -25,6 +25,11 @@ class BookModal extends Http {
             url: `book/${bookId}/short_comment`
         })
     }
+    search(start, keyword) {
+        return this.request({
+            url: `book/search?summary=1&&q=${keyword}&&start=${start}`
+        })
+    }
     postComment(bookId, comment) {
         return this.request({
             url: "book/add/short_comment",
