@@ -1,4 +1,5 @@
-import BookModal from "./../../models/book.js"
+import BookModal from "./../../models/book.js";
+import { random } from "./../../utils/common.js"
 const bookInstance = new BookModal();
 Page({
 
@@ -7,7 +8,8 @@ Page({
    */
   data: {
     books: [],
-    searching: false
+    searching: false,
+    more: ''
   },
 
   /**
@@ -68,8 +70,11 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: function (event) {
+    console.log(random(16),'页面')
+    this.setData({
+      more: random(16)
+    })
   },
 
   /**

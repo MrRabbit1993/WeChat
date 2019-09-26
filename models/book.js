@@ -27,7 +27,7 @@ class BookModal extends Http {
     }
     search(start, keyword) {
         return this.request({
-            url: `book/search?summary=1&&q=${keyword}&&start=${start}`
+            url: `book/search?summary=1&&q=${keyword}&&start=${start}&&count=10`
         })
     }
     postComment(bookId, comment) {
