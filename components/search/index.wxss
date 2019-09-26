@@ -34,7 +34,7 @@
     margin-left: 20rpx;
 }
 
-.books-container book-cmp {
+.books-container .book {
     margin-bottom: 25rpx;
 }
 
@@ -108,7 +108,7 @@
     width: 630rpx;
 }
 
-.tags tag-cmp {
+.tags .tag {
     margin-right: 10px;
     margin-bottom: 10px;
 }
