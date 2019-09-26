@@ -71,7 +71,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function (event) {
-    console.log(random(16),'页面')
     this.setData({
       more: random(16)
     })
