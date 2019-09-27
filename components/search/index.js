@@ -24,7 +24,8 @@ Component({
     // books: [],
     searching: false,
     searchVal: "",
-    loading: false
+    loading: false,
+    loadingFlag: false
   },
   attached() {
     wx.showLoading();
@@ -57,12 +58,16 @@ Component({
       const word = event.detail.value || event.detail.text;
       this.setData({
         searching: true,
-        searchVal: word
+        searchVal: word,
+        loadingFlag: true
       });
       bookInstance.search(0, word).then(_ => {
         this.setMoreData(_.books);
         this.setTotal(_.total);
         keywordInstance.addTohistory(word);
+        this.setData({
+          loadingFlag: false
+        })
       })
     },
     _loadMore() {
@@ -73,7 +78,7 @@ Component({
         bookInstance.search(this.getCurrentStart(), this.data.searchVal).then(_ => {
           this.setMoreData(_.books);
           this.setData({ loading: false })
-        })
+        }, () => this.setData({ loading: false }))
       }
     }
   }

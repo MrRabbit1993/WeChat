@@ -7,7 +7,7 @@
         </view>
         <view class="cancel" bind:tap="cancelFun">取消</view>
     </view>
-    <view wx:if="{{!searching}}"> 
+    <view wx:if="{{!searching}}">
         <view class="history">
             <view class="title">
                 <view class="chunk"></view>
@@ -15,7 +15,7 @@
             </view>
             <view class="tags">
                 <block wx:for="{{historyWords}}" wx:key="{{item}}">
-                    <tag-cmp text="{{item}}" bind:tapping="onConfirm" class="tag"/>
+                    <tag-cmp text="{{item}}" bind:tapping="onConfirm" class="tag" />
                 </block>
             </view>
         </view>
@@ -26,14 +26,16 @@
             </view>
             <view class="tags">
                 <block wx:for="{{hotWords}}" wx:key="{{item}}">
-                    <tag-cmp text="{{item}}" bind:tapping="onConfirm" class="tag"/>
+                    <tag-cmp text="{{item}}" bind:tapping="onConfirm" class="tag" />
                 </block>
             </view>
         </view>
     </view>
     <view wx:if="{{searching}}" class="books-container">
         <block wx:for="{{books}}" wx:key="{{item.id}}">
-            <book-cmp book="{{item}}" class="book"/>
+            <book-cmp book="{{item}}" class="book" />
         </block>
     </view>
+    <loading-cmp wx:if="{{loadingFlag}}" class="loading-center"/>
+    <loading-cmp wx:if="{{loading}}" class="loading"/>
 </view>
