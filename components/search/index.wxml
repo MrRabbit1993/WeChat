@@ -38,4 +38,5 @@
     </view>
     <loading-cmp wx:if="{{loadingFlag}}" class="loading-center"/>
     <loading-cmp wx:if="{{loading}}" class="loading"/>
+    <text wx:if="{{showEmpty}}" class="empty-tip">没有搜索到书籍</text>
 </view>

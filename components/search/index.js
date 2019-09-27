@@ -25,7 +25,8 @@ Component({
     searching: false,
     searchVal: "",
     loading: false,
-    loadingFlag: false
+    loadingFlag: false,
+    showEmpty: false
   },
   attached() {
     wx.showLoading();
@@ -45,10 +46,13 @@ Component({
    */
   methods: {
     cancelFun() {
+      this.initData();
+      this.setData({ showEmpty: false })
       this.triggerEvent('cancel', {})
     },
     onDelete(event) {
       this.initData();
+      this.setData({ showEmpty: false })
       this.setData({
         searching: false,
         searchVal: ""
@@ -68,6 +72,9 @@ Component({
         this.setData({
           loadingFlag: false
         })
+        if (!this.data.books.length) {
+          this.setData({ showEmpty: true })
+        }
       })
     },
     _loadMore() {
