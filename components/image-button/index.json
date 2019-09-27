@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "img-btn-cmp":"/components/image-button/index"
+  }
+}
