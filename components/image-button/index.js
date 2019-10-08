@@ -24,7 +24,6 @@ Component({
    */
   methods: {
     getUserInfo(event) {
-      console.log(event)
       this.triggerEvent('getUserInfo', event.detail)
     }
   }

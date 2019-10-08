@@ -5,15 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    authorized: false,
+    userInfo: null
   },
   getUserInfo(event) {
-    console.log(event)
+    const userInfo = event.detail.userInfo;
+    if (!userInfo) return
+    this.setData({
+      userInfo,
+      authorized: true
+    })
+  },
+  checkAuthoriz() {
+    wx.getSetting({
+      success: data => {
+        if (data.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: data => {
+              this.setData({
+                userInfo: data.userInfo,
+                authorized: true
+              })
+            }
+          })
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.checkAuthoriz();
   },
 
   /**

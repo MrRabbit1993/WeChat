@@ -1,6 +1,13 @@
 <view class="container">
     <image src="/images/my/my@bg.png" class="bg" />
-    <open-data  type="userAvatarUrl" class="avatar avatar-position"/>
+    <!-- <open-data  type="userAvatarUrl" class="avatar avatar-position"/> -->
+    <img-btn-cmp wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getUserInfo="getUserInfo">
+        <image slot="img" src="/images/my/my.png" class="avatar" />
+    </img-btn-cmp>
+    <view wx:if="{{authorized}}" class="avatar-position avatar-container">
+        <image src="{{userInfo.avatarUrl}}" class="avatar" />
+        <text>{{userInfo.nickName}}</text>
+    </view>
     <view class="about-container">
         <view class="about-us">
             <image src="/images/my/about.png" />
@@ -10,5 +17,5 @@
             <text class="description">喜欢的书</text>
         </view>
     </view>
-    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+    <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button> -->
 </view>
