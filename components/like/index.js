@@ -5,6 +5,9 @@ Component({
     },
     count: {
       type: Number
+    },
+    readOnly:{
+      type:Boolean
     }
   },
   data: {
@@ -13,6 +16,7 @@ Component({
   },
   methods: {
     _touch() {
+      if(this.properties.readOnly)return
       let like = this.properties.like;
       let count = this.properties.count;
       count = like ? --count : ++count;
