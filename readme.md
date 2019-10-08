@@ -29,4 +29,3 @@ this.triggerEvent("behavior", {xxx:xx})
 Behavior就是类型vue的mixins
 ### bindconfirm 事件
 手机端输入框确认事件 ，模拟器的回车事件
-16.6ing
