@@ -1,11 +1,16 @@
 <view class="container">
     <view class="header">
         <epsoide-cmp class="epsoide" index="{{classicData.index}}" />
-        <like-cmp class="like" bind:behavior="behavior" like="{{likeStatus}}" count="{{likeCount}}" />
+        <view class="like-container">
+            <like-cmp class="like" bind:behavior="behavior" like="{{likeStatus}}" count="{{likeCount}}" />
+            <img-btn-cmp class="share-btn" open-type="share">
+                <image class="share" slot="img" src="/images/icon/share.png" />
+            </img-btn-cmp>
+        </view>
     </view>
     <movie-cmp hidden="{{classicData.type!=100}}" img="{{classicData.image}}" content="{{classicData.content}}" />
     <!-- <music-cmp hidden="{{classicData.type!=200}}" img="{{classicData.image}}" content="{{classicData.content}}" src="{{classicData.url}}" title="{{classicData.title}}"/> -->
-    <music-cmp wx:if="{{classicData.type==200}}" img="{{classicData.image}}" content="{{classicData.content}}" src="{{classicData.url}}" title="{{classicData.title}}"/>
+    <music-cmp wx:if="{{classicData.type==200}}" img="{{classicData.image}}" content="{{classicData.content}}" src="{{classicData.url}}" title="{{classicData.title}}" />
     <eaasy-cmp hidden="{{classicData.type!=300}}" img="{{classicData.image}}" content="{{classicData.content}}" />
-    <nav-cmp class="nav" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" bind:left="nextFn" bind:right="previousFn"/>
+    <nav-cmp class="nav" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" bind:left="nextFn" bind:right="previousFn" />
 </view>
