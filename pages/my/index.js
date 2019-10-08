@@ -1,4 +1,8 @@
 // pages/my/index.js
+import BookModal from "./../../models/book.js";
+import ClassicModel from "./../../models/classic.js";
+const bookInstance = new BookModal();
+const classicInstance = new ClassicModel();
 Page({
 
   /**
@@ -6,7 +10,9 @@ Page({
    */
   data: {
     authorized: false,
-    userInfo: null
+    userInfo: null,
+    bookCount: 0,
+    classics:null
   },
   getUserInfo(event) {
     const userInfo = event.detail.userInfo;
@@ -32,11 +38,37 @@ Page({
       }
     })
   },
+  jumptoAbout(event) {
+    wx.navigateTo({
+      url: '/pages/about/index'
+    });
+  },
+  onStudy(event) {
+    wx.navigateTo({
+      url: '/pages/course/index'
+    });
+  },
+  getBookCount() {
+    bookInstance.getMyBookCount().then(_ => {
+      this.setData({
+        bookCount: _.count
+      })
+    })
+  },
+  getMyFavor() {
+    classicInstance.getMyFavor(res => {
+      this.setData({
+        classics:res.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.checkAuthoriz();
+    this.getBookCount();
+    this.getMyFavor();
   },
 
   /**

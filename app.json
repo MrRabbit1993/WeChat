@@ -3,7 +3,9 @@
     "pages/classic/index",
     "pages/book/index",
     "pages/my/index",
-    "pages/book-detail/index"
+    "pages/book-detail/index",
+    "pages/about/index",
+    "pages/course/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

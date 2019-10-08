@@ -34,6 +34,13 @@ class ClassicModel extends Http {
         let lastIdx = this._getLastIdx("last");
         return idx == lastIdx ? true : false
     }
+    getMyFavor(success){
+        const param = {
+            url:"classic/favor",
+            success:success
+        }
+        this.request(param)
+    }
     _setLastIdx(idx) {
         wx.setStorageSync('last', idx);//同步写入缓存
     }
